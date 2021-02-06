@@ -1,0 +1,217 @@
+<!doctype html>
+<html ng-app="App">
+    <head> <title>Site</title>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <!--     Fontes     -->
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+      <!--  CSS -->
+      <link href="../../css/dashboard.css" rel="stylesheet" />
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+      <script src="../../app/app.js"></script>
+    </head>
+    <body ng-controller="MainController">
+        
+        <div class="wrapper " type="Background-color: white">  
+            <div class="">
+              <!-- Divisao -->
+        
+             </span>
+        <center>
+          <img src="../../img/logo_multisearch.png" style="width: 240px;margin-left: 3%;">
+        </center>
+        
+          <div class="main-panel">
+            <!-- Divisao -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+              <div class="container-fluid" >
+        
+             
+                </button>
+                <div name="frm_search" method="post" action="" class="input-group rounded" ng-submit="sendForm()" ng-controller="MainController" style="width: 64%; column-span: 0 ; margin-left: 9%; border-style: solid; border-width: 1px; border-color:rgb(0, 0, 0);">
+               <input type="text" class="form-control rounded" name="txt_search" ng-model="model.search" style="margin-left: 15px; color: gray;" />
+               <button name="search_button"  class="input-group-text border-0 type="submit" ng-click="sendForm()"><img class="search_icon" src="../../img/pesquisa.png" style="width: 5%; margin-left: 97%"></button>
+                  </form>
+        
+                </div>
+              </div>
+            </nav>
+            <!-- Divisao -->
+            <div class="content">
+              <div class="container-fluid">
+                <div class="row-list"></div>
+                  <div class="col-md-12"></div>
+                  <div class="encont">
+                    Foram encontrados {{sales_orders.length+purchase_orders.length+materials.length+equipments.length+workforce.length}} resultados:
+                  </div>
+        
+                    <div class="card" style="color: rgb(0, 0, 0); width: 71%; margin-left: 5%; border-style: solid; border-width: 1px; border-color:gray; position: relative;border-radius: 0%;">
+        
+                      <div class="card-body">
+                        <div class="col-md-12">
+                          <table class="table">
+                            <thead class=" text-primary">
+                              <th colspan="3" style="color: black;">
+                              <b>Pedidos de Venda </b>
+        
+                             </th>              
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="purchaseOrder in sales_orders">
+                                <td>
+                                  <font color="red">
+                                  {{purchaseOrder.SalesOrderID}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.MaterialName}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.Quantity}}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Divisao -->
+                  <div class="content">
+                    <div class="container-fluid">
+                      <div class="row-list">
+                        <div class="col-md-12">
+        
+                          <div class="card" style="color: rgb(0, 0, 0); width: 81.5%; margin-left: 4%; border-style: solid; border-width: 1px; border-color:gray; position: relative;border-radius: 0%;">
+        
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                <table class="table">
+                                  <thead class=" text-primary">
+                                    <th colspan="3" style="color: black;">
+                                    <b> Pedidos de Compra</b>
+                                   </th>              
+                                  </thead>
+                                  <tbody>
+                              <tr ng-repeat="purchaseOrder in purchaseOrders">
+                                <td>
+                                  <font color="red">
+                                  {{purchaseOrder.PurchaseOrderID}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.MaterialName}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.Quantity}}
+                                </td>
+                              </tr>
+                            </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+             <!-- Divisao -->
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row-list">
+                    <div class="col-md-12">
+                      <div class="card" style="color: rgb(0, 0, 0); width: 97%; margin-left: 3%; border-style: solid; border-width: 1px; border-color:gray; position: relative;border-radius: 0%; align-items:stretch ;"> 
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class=" text-primary">
+                                 <th colspan="3" style="color: black;">
+                                 <b> Produtos</b>
+                               </th>              
+                              </thead>
+                               <tbody>
+                              <tr ng-repeat="purchaseOrder in materials">
+                                <td>
+                                  <font color="red">
+                                  {{purchaseOrder.MaterialID}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.MaterialName}}
+                                </td>
+                              </tr>
+                            </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                 <!-- Divisao -->
+                    <div class="content">
+                      <div class="container-fluid">
+                        <div class="row-list">
+                          <div class="col-md-12">
+        
+                            <div class="card" style="color: rgb(0, 0, 0); width: 151%; margin-left: 2%; border-style: solid; border-width: 1px; border-color:gray; position: relative;border-radius: 0%;">
+        
+                              <div class="card-body">
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <thead class=" text-primary">
+                                      <th colspan="3" style="color: black;">
+                                      <b>Equipamentos</b>
+                                     </th>              
+                                    </thead>
+                                    <tbody>
+                              <tr ng-repeat="purchaseOrder in equipaments">
+                                <td>
+                                  <font color="red">
+                                  {{purchaseOrder.EquipmentID}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.EquipmentName}}
+                                </td>
+                              </tr>
+                            </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                 <!-- Divisao -->
+                 <div class="content">
+                  <div class="container-fluid">
+                    <div class="row-list">
+                      <div class="col-md-12">
+        
+                        <div class="card" style="color: rgb(0, 0, 0); width: 475%; margin-left: 0px; border-style: solid; border-width: 1px; border-color:gray; position: relative;border-radius: 0%;">
+        
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table">
+                                <thead class=" text-primary">
+                                   <th colspan="3" style="color: black;">
+                                  <b>Mão de obra</b>
+                                 </th>              
+                                </thead>
+                               <tbody>
+                              <tr ng-repeat="purchaseOrder in workforce">
+                                <td>
+                                  <font color="red">
+                                  {{purchaseOrder.WorkforceID}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.Name}}
+                                </td>
+                                <td>
+                                    {{purchaseOrder.Shift}}
+                                </td>
+                              </tr>
+                            </tbody>       
+                                 <!-- Divisao -->
+              <div class="content">
+                <div class="container-fluid">         
+                </div>     
+                </div>
+              </footer>
+            </div>
+          </div>
+
+    </body>
+</html> 
